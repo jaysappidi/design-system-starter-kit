@@ -1,0 +1,1838 @@
+{% extends "_template.html" %}
+{% block content %}
+
+<!--
+  Boilerplate for the Dreamforce 2016 workshop:
+  "Rapid prototyping with the Design System Starter Kit and UI Kit"
+  http://sfdcworkshop.com/workshop/rapid-prototyping-with-slds/
+-->
+
+<!--
+  Here's picture you can put into your content.
+  Feel free to let your creativity go wild and change this image to your taste!
+-->
+<!-- <img src="/assets/workshop-salesforce-red.jpg" alt="" class="slds-size--2-of-3 slds-m-bottom--large" /> -->
+
+<!-- PAGE HEADER: https://www.lightningdesignsystem.com/components/page-headers/#flavor-record-home -->
+
+<!-- /PAGE HEADER -->
+
+<!-- WIZARD: https://www.lightningdesignsystem.com/components/process/#flavor-wizard -->
+
+<!-- /WIZARD -->
+
+<!-- COLUMNS - already populated for you: https://www.lightningdesignsystem.com/components/utilities/grid/#flavor-manual-sizing -->
+<!-- PAGE HEADER -->
+<div class="slds-page-header slds-page-header--object-home" role="banner">
+  <div class="slds-grid">
+    <div class="slds-col slds-has-flexi-truncate">
+      <div class="slds-media slds-no-space slds-grow">
+        <div class="slds-media__figure">
+          <span class="slds-icon_container">
+            <svg aria-hidden="true" class="slds-icon slds-icon-standard-lead">
+              <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#lead"></use>
+            </svg>
+          </span>
+        </div>
+        <div class="slds-media__body">
+          <p class="slds-text-title--caps slds-line-height--reset">Templates</p>
+          <button class="slds-button slds-type-focus slds-m-right--small slds-grid slds-truncate" aria-haspopup="true">
+            <div class="slds-grid slds-grid--vertical-align-center slds-truncate">
+              <h1 class="slds-page-header__title slds-truncate" title="this should match My Leads">My Templates</h1>
+              <svg aria-hidden="true" class="slds-button__icon slds-button__icon--right slds-no-flex">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+              </svg>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="slds-col slds-no-flex slds-grid slds-align-top slds-p-bottom--xx-small">
+      <div class="slds-button-group" role="group">
+        <button class="slds-button slds-button--neutral">New Template</button>
+
+      </div>
+    </div>
+  </div>
+  <div class="slds-grid">
+    <div class="slds-col slds-align-bottom">
+      <p class="slds-text-body--small">10 items • Sorted by Name</p>
+    </div>
+    <div class="slds-col slds-no-flex slds-grid slds-align-bottom">
+      <div class="slds-dropdown-trigger slds-dropdown-trigger--click slds-m-left--x-small" aria-expanded="false">
+        <button class="slds-button slds-button--icon-more" aria-haspopup="true" title="List View Controls">
+          <svg aria-hidden="true" class="slds-button__icon">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#settings"></use>
+          </svg>
+          <svg aria-hidden="true" class="slds-button__icon slds-button__icon--x-small">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+          </svg>
+          <span class="slds-assistive-text">List View Controls</span>
+        </button>
+      </div>
+      <div class="slds-dropdown-trigger slds-dropdown-trigger--click slds-m-left--xx-small" aria-expanded="false">
+        <button class="slds-button slds-button--icon-more" aria-haspopup="true" title="Change view">
+          <svg aria-hidden="true" class="slds-button__icon">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#table"></use>
+          </svg>
+          <svg aria-hidden="true" class="slds-button__icon slds-button__icon--x-small">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+          </svg>
+          <span class="slds-assistive-text">Change view</span>
+        </button>
+      </div>
+      <button class="slds-button slds-m-left--xx-small slds-button--icon-border" title="Edit List">
+        <svg aria-hidden="true" class="slds-button__icon">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#edit"></use>
+        </svg>
+        <span class="slds-assistive-text">Edit List</span>
+      </button>
+      <button class="slds-button slds-m-left--xx-small slds-button--icon-border" title="Refresh">
+        <svg aria-hidden="true" class="slds-button__icon">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#refresh"></use>
+        </svg>
+        <span class="slds-assistive-text">Refresh</span>
+      </button>
+      <div class="slds-button-group" role="group">
+        <button class="slds-button slds-button--icon-border" title="Charts">
+          <svg aria-hidden="true" class="slds-button__icon">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chart"></use>
+          </svg>
+          <span class="slds-assistive-text">Charts</span>
+        </button>
+        <button class="slds-button slds-button--icon-border" title="Filters">
+          <svg aria-hidden="true" class="slds-button__icon">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#filterList"></use>
+          </svg>
+          <span class="slds-assistive-text">Filters</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- / PAGE HEADER -->
+
+<!-- DATA TABLE -->
+
+
+
+<!-- MODAL -->
+<div role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal slds-fade-in-open slds-modal--large ">
+  <div class="slds-modal__container">
+    <div class="slds-modal__header">
+      <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="window.location.href='/template-manager.html'">
+        <svg aria-hidden="true" class="slds-button__icon slds-button__icon--large">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+        </svg>
+        <span class="slds-assistive-text">Close</span>
+      </button>
+      <h2 id="header43" class="slds-text-heading--medium">Create New DocGen Template</h2>
+    </div>
+    <div class="slds-modal__content slds-p-around--medium">
+      <!--Tabs-->
+      <div class="slds-tabs--default">
+        <ul class="slds-tabs--default__nav" role="tablist">
+          <li class="slds-tabs--default__item slds-text-title--caps slds-active" title="Item One" role="presentation">
+          <a class="slds-tabs--default__link" href="javascript:void(0);" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-default-1" id="tab-default-1__item">Template Details</a></li>
+          <li class="slds-tabs--default__item slds-text-title--caps" title="Item Two" role="presentation">
+          <a class="slds-tabs--default__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-2" id="tab-default-2__item">Security</a></li>
+          <li class="slds-tabs--default__item slds-text-title--caps" title="Item Three" role="presentation">
+          <a class="slds-tabs--default__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-3" id="tab-default-3__item">Additional Files</a></li>
+          <li class="slds-tabs--default__item slds-text-title--caps" title="Item Four" role="presentation">
+          <a class="slds-tabs--default__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-4" id="tab-default-4__item">Versions</a></li>
+        </ul>
+
+        <!-- TAB1 -->
+        <div id="tab-default-1" class="slds-tabs--default__content slds-show slds-p-left--medium slds-p-right--medium slds-p-bottom--xx-large" role="tabpanel" aria-labelledby="tab-default-1__item">
+            <form role="form" class="slds-form--stacked slds-grid slds-wrap slds-grid--pull-padded ">
+              <div class="slds-p-horizontal--small slds-size--1-of-1 slds-medium-size--1-of-2">
+                <div class="slds-form-element">
+                   <div class=" slds-has-divider--bottom"> 
+                    <span class="slds-form-element__label">Template Owner</span>
+                    <span class="slds-form-element__static">Jay Sappidi</span>
+                  </div>
+                </div>
+                <div class="slds-form-element">
+                  <label class="slds-form-element__label" for="Template-Name">Template Name</label>
+                  <div class="slds-form-element__control">
+                    <input id="Template-Name" class="slds-input" type="text" placeholder="Standard Quotation">
+                  </div>
+                </div>
+                <div class="slds-form-element">
+                  <label class="slds-form-element__label" for="primary-object">Select Primary Object</label>
+                  <div class="slds-form-element__control">
+                    <div class="slds-select_container">
+                      <select id="primar-object" class="slds-select">
+                        <option>Accounts</option>
+                        <option>Cases</option>
+                        <option>Contacts</option>
+                        <option>Opportunities</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                 <div class="slds-form-element">
+                  <label class="slds-form-element__label" for="primary-object">Status</label>
+                  <div class="slds-form-element__control">
+                    <div class="slds-select_container">
+                      <select id="primar-object" class="slds-select">
+                        <option>Active</option>
+                        <option>Inactive</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>                
+
+              </div>
+
+              <div class="slds-p-horizontal--small slds-size--1-of-1 slds-medium-size--1-of-2">
+                 <fieldset class="slds-form-element">
+                  <div>
+                    <label class="slds-checkbox" for="contact-ownership">
+                      <input name="default" type="checkbox" id="contact-ownership">
+                      <span class="slds-checkbox--faux"></span>
+                      <span class="slds-form-element__label">Allow Contact Selection</span>
+                    </label>
+                  </div>
+                </fieldset>              
+                <div class="slds-form-element">
+                  <label class="slds-form-element__label" for="Contact-Name">File Name</label>
+                  <div class="slds-form-element__control">
+                    <input id="File-Name" class="slds-input" type="text" placeholder="<<Account>><<Date>>Quotation">
+                  </div>
+                </div>
+
+                <div class="slds-form-element">
+                  <span class="slds-form-element__label" id="file-selector-id">Attach New Template / Updated Template</span>
+                  <div class="slds-form-element__control">
+                    <div class="slds-file-selector slds-file-selector--files">
+                      <div class="slds-file-selector__dropzone">
+                        <input class="slds-file-selector__input slds-assistive-text" accept="image/png" type="file" id="file-upload-input-01" aria-describedby="file-selector-id" />
+                        <label class="slds-file-selector__body" for="file-upload-input-01">
+                          <span class="slds-file-selector__button slds-button slds-button--neutral">
+                            <svg aria-hidden="true" class="slds-button__icon slds-button__icon--left">
+                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#upload"></use>
+                            </svg>Upload Files</span>
+                          <span class="slds-file-selector__text slds-medium-show">or Drop Files</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="slds-form-element">
+                  <label class="slds-form-element__label" for="textarea">Notes</label>
+                  <div class="slds-form-element__control">
+                    <textarea id="textarea" class="slds-textarea"></textarea>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+            <figure class="slds-image">
+                <img src="/assets/Blank_Spacer.png" />
+            </figure>
+        </div>
+
+      <!-- /TAB1 -->
+
+      <!-- TAB2 -->
+
+        <div id="tab-default-2" class="slds-tabs--default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-2__item">   
+        <!-- MULTI SELECT IN TAB2 -->  
+            <div class="slds-grid slds-wrap slds--vertical-stretch slds-p-bottom-medium slds-align--absolute-center">          
+              <div class="slds-picklist--draggable slds-grid slds-m-horizontal--medium">
+                <div class="slds-form-element slds-shrink-none">
+                  <span class="slds-form-element__label">Available Profiles</span>
+                  <div class="slds-picklist slds-picklist--multi">
+                    <ul class="slds-picklist__options slds-picklist__options--multi shown">
+                      <li class="slds-picklist__item" draggable="true" role="option" aria-selected="false" tabindex="-1" data-value="o1">
+                        <span class="slds-truncate">
+                          <span>Sales Manager</span>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slds-grid slds-grid--vertical slds-shrink-none">
+                  <button class="slds-button slds-button--icon-container" name="add" id="lc-282-add" title="Add" type="button">
+                    <svg version="1.1" class="slds-button__icon" aria-hidden="true" role="img">
+                      <use href="/assets/icons/utility-sprite/svg/symbols.svg#right"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Add</span>
+                  </button>
+                  <button class="slds-button slds-button--icon-container" name="remove" id="lc-281-remove" title="Remove" type="button">
+                    <svg version="1.1" class="slds-button__icon" aria-hidden="true" role="img">
+                      <use href="/assets/icons/utility-sprite/svg/symbols.svg#left"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Remove</span>
+                  </button>
+                </div>
+                <div class="slds-form-element slds-shrink-none">
+                  <span class="slds-form-element__label">Selected Choices</span>
+                  <div class="slds-picklist slds-picklist--multi">
+                    <ul class="slds-picklist__options slds-picklist__options--multi shown">
+                      <li class="slds-picklist__item" draggable="true" role="option" aria-selected="false" tabindex="-1" data-value="o2">
+                        <span class="slds-truncate">
+                          <span>Account Executive</span>
+                        </span>
+                      </li>
+                      <li class="slds-picklist__item" draggable="true" role="option" aria-selected="false" tabindex="-1" data-value="o2">
+                        <span class="slds-truncate">
+                          <span>Sales Executive</span>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slds-grid slds-grid--vertical slds-shrink-none">
+                  <button class="slds-button slds-button--icon-container" name="up" id="lc-283-up" title="Up" type="button">
+                    <svg version="1.1" class="slds-button__icon" aria-hidden="true" role="img">
+                      <use href="/assets/icons/utility-sprite/svg/symbols.svg#up"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Up</span>
+                  </button>
+                  <button class="slds-button slds-button--icon-container" name="down" id="lc-284-down" title="Down" type="button">
+                    <svg version="1.1" class="slds-button__icon" aria-hidden="true" role="img">
+                      <use href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Down</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+        <!-- /MULTI SELECT IN TAB2 -->
+
+        <!-- DATA TABLE IN TAB2 -->
+          <div class="slds-grid slds-wrap slds-p-bottom--medium slds-p-top--medium">
+            <table class="slds-table slds-table--bordered slds-p-around--medium slds-table--fixed-layout" role="grid">
+              <thead>
+                <tr class="slds-text-title--caps">
+
+                  <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Profile Name">
+                    <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                      <span class="slds-assistive-text">Sort </span>
+                      <span class="slds-truncate" title="Profile Name">Profile Name</span>
+                      <div class="slds-icon_container">
+                        <svg aria-hidden="true" class="slds-icon slds-icon--x-small slds-icon-text-default slds-is-sortable__icon">
+                          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+                        </svg>
+                      </div>
+                      <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+                    </a>
+                    <div class="slds-resizable">
+                      <label for="cell-resize-handle-203" class="slds-assistive-text">Profile Name column width</label>
+                      <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-203" />
+                      <span class="slds-resizable__handle">
+                        <span class="slds-resizable__divider"></span>
+                      </span>
+                    </div>
+                  </th>
+                  <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Profile Name">
+                      <span class="slds-truncate" title="Source File"> Source File</span>
+                      <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+                    <div class="slds-resizable">
+                      <label for="cell-resize-handle-203" class="slds-assistive-text">Source File column width</label>
+                      <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-203" />
+                      <span class="slds-resizable__handle">
+                        <span class="slds-resizable__divider"></span>
+                      </span>
+                    </div>
+                  </th>
+                  <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Profile Name">
+                      <span class="slds-truncate" title="PDF File"> PDF File</span>
+                      <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+                    <div class="slds-resizable">
+                      <label for="cell-resize-handle-203" class="slds-assistive-text">PDF File column width</label>
+                      <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-203" />
+                      <span class="slds-resizable__handle">
+                        <span class="slds-resizable__divider"></span>
+                      </span>
+                    </div>
+                  </th>
+                  <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Profile Name">
+                      <span class="slds-truncate" title="Email"> Email</span>
+                      <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+                    <div class="slds-resizable">
+                      <label for="cell-resize-handle-203" class="slds-assistive-text">Email column width</label>
+                      <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-203" />
+                      <span class="slds-resizable__handle">
+                        <span class="slds-resizable__divider"></span>
+                      </span>
+                    </div>
+                  </th>
+                  <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Profile Name">
+                      <span class="slds-truncate" title="Download"> Download</span>
+                      <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+                    <div class="slds-resizable">
+                      <label for="cell-resize-handle-203" class="slds-assistive-text">Download column width</label>
+                      <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-203" />
+                      <span class="slds-resizable__handle">
+                        <span class="slds-resizable__divider"></span>
+                      </span>
+                    </div>
+                  </th>
+                  <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="View Template">
+                      <span class="slds-truncate" title="Amount">Actions</span>
+                      <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+                    <div class="slds-resizable">
+                      <label for="cell-resize-handle-208" class="slds-assistive-text">Actions </label>
+                      <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-208" />
+                      <span class="slds-resizable__handle">
+                        <span class="slds-resizable__divider"></span>
+                      </span>
+                    </div>
+                  </th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="slds-hint-parent">
+                  <td scope="row" data-label="Profile Name">
+                    <div class="slds-truncate" title="Sales Executive">Sales Executive</div>
+                  </td>
+
+                  <td role="gridcell" class="slds-cell-shrink" data-label="Select row Source Filer Permission">
+                    <label class="slds-checkbox ">
+                      <input type="checkbox" name="options" />
+                      <span class="slds-checkbox--faux"></span>
+                      <span class="slds-assistive-text">Select Source File Permission </span>
+                    </label>
+                  </td>
+                      
+                  <td role="gridcell" class="slds-cell-shrink" data-label="Select row Source Filer Permission">
+                    <label class="slds-checkbox">
+                      <input type="checkbox" name="options" />
+                      <span class="slds-checkbox--faux"></span>
+                      <span class="slds-assistive-text">Select Source File Permission </span>
+                    </label>
+                  </td>
+
+                  <td role="gridcell" class="slds-cell-shrink" data-label="Select row Source Filer Permission">
+                    <label class="slds-checkbox">
+                      <input type="checkbox" name="options" />
+                      <span class="slds-checkbox--faux"></span>
+                      <span class="slds-assistive-text">Select Source File Permission </span>
+                    </label>
+                  </td>
+
+                  <td role="gridcell" class="slds-cell-shrink" data-label="Select row Source Filer Permission">
+                    <label class="slds-checkbox">
+                      <input type="checkbox" name="options" />
+                      <span class="slds-checkbox--faux"></span>
+                      <span class="slds-assistive-text">Select Source File Permission </span>
+                    </label>
+                  </td>
+                  <td role="gridcell" class="slds-cell-shrink" data-label="Actions">
+                    <div class="slds-dropdown-trigger slds-dropdown-trigger--click slds-is-closed">
+                        <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small" aria-haspopup="true" title="Show More">
+                          <svg aria-hidden="true" class="slds-button__icon">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                          </svg>
+                          <span class="slds-assistive-text">Show More</span>
+                        </button>
+                        <div class="slds-dropdown slds-dropdown--left slds-dropdown--actions">
+                          <ul class="slds-dropdown__list" role="menu">
+                            <li class="slds-dropdown__item" role="presentation">
+                              <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                <span class="slds-truncate">Delete</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                  </td>
+                </tr>
+                <tr class="slds-hint-parent">
+                  <td scope="row" data-label="Profile Name">
+                    <div class="slds-truncate" title="Account Executive">Account Executive</div>
+                  </td>
+
+                  <td role="gridcell" class="slds-cell-shrink" data-label="Select row Source Filer Permission">
+                    <label class="slds-checkbox ">
+                      <input type="checkbox" name="options" />
+                      <span class="slds-checkbox--faux"></span>
+                      <span class="slds-assistive-text">Select Source File Permission </span>
+                    </label>
+                  </td>
+                      
+                  <td role="gridcell" class="slds-cell-shrink" data-label="Select row Source Filer Permission">
+                    <label class="slds-checkbox">
+                      <input type="checkbox" name="options" />
+                      <span class="slds-checkbox--faux"></span>
+                      <span class="slds-assistive-text">Select Source File Permission </span>
+                    </label>
+                  </td>
+
+                  <td role="gridcell" class="slds-cell-shrink" data-label="Select row Source Filer Permission">
+                    <label class="slds-checkbox">
+                      <input type="checkbox" name="options" />
+                      <span class="slds-checkbox--faux"></span>
+                      <span class="slds-assistive-text">Select Source File Permission </span>
+                    </label>
+                  </td>
+
+                  <td role="gridcell" class="slds-cell-shrink" data-label="Select row Source Filer Permission">
+                    <label class="slds-checkbox">
+                      <input type="checkbox" name="options" />
+                      <span class="slds-checkbox--faux"></span>
+                      <span class="slds-assistive-text">Select Source File Permission </span>
+                    </label>
+                  </td>
+                  <td role="gridcell" class="slds-cell-shrink" data-label="Actions">
+                    <div class="slds-dropdown-trigger slds-dropdown-trigger--click slds-is-closed">
+                        <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small" aria-haspopup="true" title="Show More">
+                          <svg aria-hidden="true" class="slds-button__icon">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                          </svg>
+                          <span class="slds-assistive-text">Show More</span>
+                        </button>
+                        <div class="slds-dropdown slds-dropdown--left slds-dropdown--actions">
+                          <ul class="slds-dropdown__list" role="menu">
+                            <li class="slds-dropdown__item" role="presentation">
+                              <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                <span class="slds-truncate">Delete</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /DATA TABLE IN TAB2 -->
+
+        </div>
+
+      <!--/TAB2 -->
+
+      <!-- TAB3 -->
+
+
+        <div id="tab-default-3" class="slds-tabs--default__content slds-hide slds-p-left--medium slds-p-right--medium" role="tabpanel" aria-labelledby="tab-default-3__item">
+
+            <form role="form" class="slds-form--horizontal slds-grid slds-wrap slds-grid--pull-padded ">
+              <div class="slds-p-horizontal--small slds-size--1-of-1 slds-medium-size--1-of-1">
+
+                <div class="slds-form-element">
+                  <span class="slds-form-element__label" id="file-selector-id">Attach Additional File </span>
+                  <div class="slds-form-element__control">
+                    <div class="slds-file-selector slds-file-selector--files">
+                      <div class="slds-file-selector__dropzone">
+                        <input class="slds-file-selector__input slds-assistive-text" accept="image/png" type="file" id="file-upload-input-01" aria-describedby="file-selector-id" />
+                        <label class="slds-file-selector__body" for="file-upload-input-01">
+                          <span class="slds-file-selector__button slds-button slds-button--neutral">
+                            <svg aria-hidden="true" class="slds-button__icon slds-button__icon--left">
+                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#upload"></use>
+                            </svg>Upload Files</span>
+                          <span class="slds-file-selector__text slds-medium-show">or Drop Files</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </form>
+
+            <div class="slds-grid slds-wrap slds-p-top--medium">
+
+              <table class="slds-table slds-table--bordered slds-table--fixed-layout" role="grid">
+                <thead>
+                  <tr class="slds-text-title--caps">
+                    <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="View Template">
+                      <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                        <span class="slds-assistive-text">Sort </span>
+                        <span class="slds-truncate" title="Order">Order</span>
+                        <div class="slds-icon_container">
+                          <svg aria-hidden="true" class="slds-icon slds-icon--x-small slds-icon-text-default slds-is-sortable__icon">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+                          </svg>
+                        </div>
+                        <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+                      </a>
+                      <div class="slds-resizable">
+                        <label for="cell-resize-handle-208" class="slds-assistive-text">Order </label>
+                        <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-208" />
+                        <span class="slds-resizable__handle">
+                          <span class="slds-resizable__divider"></span>
+                        </span>
+                      </div>
+                    </th>                  
+                    <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Template Name">
+                      <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                        <span class="slds-assistive-text">Sort </span>
+                        <span class="slds-truncate" title="Opportunity Name">File Name</span>
+                        <div class="slds-icon_container">
+                          <svg aria-hidden="true" class="slds-icon slds-icon--x-small slds-icon-text-default slds-is-sortable__icon">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+                          </svg>
+                        </div>
+                        <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+                      </a>
+                      <div class="slds-resizable">
+                        <label for="cell-resize-handle-203" class="slds-assistive-text">File Name column width</label>
+                        <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-203" />
+                        <span class="slds-resizable__handle">
+                          <span class="slds-resizable__divider"></span>
+                        </span>
+                      </div>
+                    </th>
+                    <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Created By">
+                      <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                        <span class="slds-assistive-text">Sort </span>
+                        <span class="slds-truncate" title="Confidence">Uploaded By</span>
+                        <div class="slds-icon_container">
+                          <svg aria-hidden="true" class="slds-icon slds-icon--x-small slds-icon-text-default slds-is-sortable__icon">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+                          </svg>
+                        </div>
+                        <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+                      </a>
+                      <div class="slds-resizable">
+                        <label for="cell-resize-handle-207" class="slds-assistive-text">Added By column width</label>
+                        <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-207" />
+                        <span class="slds-resizable__handle">
+                          <span class="slds-resizable__divider"></span>
+                        </span>
+                      </div>
+                    </th>
+                    <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Creation Date">
+                      <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                        <span class="slds-assistive-text">Sort </span>
+                        <span class="slds-truncate" title="Close Date"> Date Uploaded</span>
+                        <div class="slds-icon_container">
+                          <svg aria-hidden="true" class="slds-icon slds-icon--x-small slds-icon-text-default slds-is-sortable__icon">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+                          </svg>
+                        </div>
+                        <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+                      </a>
+                      <div class="slds-resizable">
+                        <label for="cell-resize-handle-205" class="slds-assistive-text">Upload Date column width</label>
+                        <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-205" />
+                        <span class="slds-resizable__handle">
+                          <span class="slds-resizable__divider"></span>
+                        </span>
+                      </div>
+                    </th>
+                    <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="View Template">
+                        <span class="slds-truncate" title="Action">Mandatory</span>
+                        <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+
+                      <div class="slds-resizable">
+                        <label for="cell-resize-handle-208" class="slds-assistive-text">Mandatory </label>
+                        <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-208" />
+                        <span class="slds-resizable__handle">
+                          <span class="slds-resizable__divider"></span>
+                        </span>
+                      </div>
+                    </th>
+                    <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="View Template">
+                        <span class="slds-truncate" title="Action">Action</span>
+                        <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+
+                      <div class="slds-resizable">
+                        <label for="cell-resize-handle-208" class="slds-assistive-text">Action </label>
+                        <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-208" />
+                        <span class="slds-resizable__handle">
+                          <span class="slds-resizable__divider"></span>
+                        </span>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="slds-hint-parent">
+                    <th scope="row" data-label="Order">
+                      <div class="slds-truncate" title="Sales Executive">1.</div>                                           
+                    </th>
+                    <th scope="row" data-label="File Name">
+                      <div class="slds-truncate" title="Sales Executive">Quotation</div>
+                    </th>
+                    <td role="gridcell" data-label="Uploaded By">
+                      <div class="slds-truncate" title="Sales Executive">Jay Sappidi</div>
+                    </td>
+                    <td role="gridcell" data-label="Date Uploaded">
+                      <div class="slds-truncate" title="4/14/2015">4/14/2015</div>
+                    </td>
+                    <td role="gridcell" class="slds-cell-shrink" data-label="Select row Sales Executive">
+                      <label class="slds-checkbox">
+                        <input type="checkbox" name="options" />
+                        <span class="slds-checkbox--faux"></span>
+                        <span class="slds-assistive-text">Select Mandatory</span>
+                      </label>
+                    </td>                    
+                    <td role="gridcell" data-label="Version">
+                      <div class="slds-dropdown-trigger slds-dropdown-trigger--click slds-is-open">
+                        <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small" aria-haspopup="true" title="Show More">
+                          <svg aria-hidden="true" class="slds-button__icon">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                          </svg>
+                          <span class="slds-assistive-text">Show More</span>
+                        </button>
+                        <div class="slds-dropdown slds-dropdown--left slds-dropdown--actions">
+                          <ul class="slds-dropdown__list" role="menu">
+                            <li class="slds-dropdown__item" role="presentation">
+                              <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                <span class="slds-truncate">Delete</span>
+                              </a>
+                            </li>
+                            <li class="slds-dropdown__item" role="presentation">
+                              <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                <span class="slds-truncate">Download</span>
+                              </a>
+                            </li>
+                             <li class="slds-dropdown__item" role="presentation">
+                              <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                <span class="slds-truncate">Move Up</span>
+                              </a>
+                            </li>
+                            <li class="slds-dropdown__item" role="presentation">
+                              <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                <span class="slds-truncate">Move Down</span>
+                              </a>
+                            </li>                                                                                   
+                          </ul>
+                        </div>
+                      </div>
+                    </td>      
+                  </tr>
+                  <tr class="slds-hint-parent">
+                    <th scope="row" data-label="Order">
+                      <div class="slds-truncate" title="Sales Executive">2.</div>                                           
+                    </th>
+                    <th scope="row" data-label="File Name">
+                      <div class="slds-truncate" title="Sales Executive">Quotation</div>
+                    </th>
+                    <td role="gridcell" data-label="Uploaded By">
+                      <div class="slds-truncate" title="Sales Executive">Jay Sappidi</div>
+                    </td>
+                    <td role="gridcell" data-label="Date Uploaded">
+                      <div class="slds-truncate" title="4/14/2015">4/14/2015</div>
+                    </td>
+                    <td role="gridcell" class="slds-cell-shrink" data-label="Select row Sales Executive">
+                      <label class="slds-checkbox">
+                        <input type="checkbox" name="options" />
+                        <span class="slds-checkbox--faux"></span>
+                        <span class="slds-assistive-text">Select Mandatory</span>
+                      </label>
+                    </td>                    
+                    <td role="gridcell" data-label="Version">
+                      <div class="slds-dropdown-trigger slds-dropdown-trigger--click slds-is-closed">
+                        <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small" aria-haspopup="true" title="Show More">
+                          <svg aria-hidden="true" class="slds-button__icon">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                          </svg>
+                          <span class="slds-assistive-text">Show More</span>
+                        </button>
+                        <div class="slds-dropdown slds-dropdown--left slds-dropdown--actions">
+                          <ul class="slds-dropdown__list" role="menu">
+                            <li class="slds-dropdown__item" role="presentation">
+                              <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                <span class="slds-truncate">Delete</span>
+                              </a>
+                            </li>
+                            <li class="slds-dropdown__item" role="presentation">
+                              <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                <span class="slds-truncate">Download</span>
+                              </a>
+                            </li>
+                             <li class="slds-dropdown__item" role="presentation">
+                              <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                <span class="slds-truncate">Move Up</span>
+                              </a>
+                            </li>
+                            <li class="slds-dropdown__item" role="presentation">
+                              <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                <span class="slds-truncate">Move Down</span>
+                              </a>
+                            </li>                                                                                   
+                          </ul>
+                        </div>
+                      </div>
+                    </td>      
+                  </tr>
+                  <tr class="slds-hint-parent">
+                    <th scope="row" data-label="Order">
+                      <div class="slds-truncate" title="Sales Executive">3.</div>                                           
+                    </th>
+                    <th scope="row" data-label="File Name">
+                      <div class="slds-truncate" title="Sales Executive">Quotation</div>
+                    </th>
+                    <td role="gridcell" data-label="Uploaded By">
+                      <div class="slds-truncate" title="Sales Executive">Jay Sappidi</div>
+                    </td>
+                    <td role="gridcell" data-label="Date Uploaded">
+                      <div class="slds-truncate" title="4/14/2015">4/14/2015</div>
+                    </td>
+                    <td role="gridcell" class="slds-cell-shrink" data-label="Select row Sales Executive">
+                      <label class="slds-checkbox">
+                        <input type="checkbox" name="options" />
+                        <span class="slds-checkbox--faux"></span>
+                        <span class="slds-assistive-text">Select Mandatory</span>
+                      </label>
+                    </td>                     
+                    <td role="gridcell" data-label="Version">
+                      <div class="slds-dropdown-trigger slds-dropdown-trigger--click slds-is-closed">
+                        <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small" aria-haspopup="true" title="Show More">
+                          <svg aria-hidden="true" class="slds-button__icon">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                          </svg>
+                          <span class="slds-assistive-text">Show More</span>
+                        </button>
+                        <div class="slds-dropdown slds-dropdown--left slds-dropdown--actions">
+                          <ul class="slds-dropdown__list" role="menu">
+                            <li class="slds-dropdown__item" role="presentation">
+                              <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                <span class="slds-truncate">Delete</span>
+                              </a>
+                            </li>
+                            <li class="slds-dropdown__item" role="presentation">
+                              <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                <span class="slds-truncate">Download</span>
+                              </a>
+                            </li>
+                             <li class="slds-dropdown__item" role="presentation">
+                              <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                <span class="slds-truncate">Move Up</span>
+                              </a>
+                            </li>
+                            <li class="slds-dropdown__item" role="presentation">
+                              <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                <span class="slds-truncate">Move Down</span>
+                              </a>
+                            </li>                                                                                   
+                          </ul>
+                        </div>
+                      </div>
+                    </td>      
+                  </tr> 
+                  <tr class="slds-hint-parent">
+                    <th scope="row" data-label="Order">
+                      <div class="slds-truncate" title="Sales Executive">4.</div>                                           
+                    </th>
+                    <th scope="row" data-label="File Name">
+                      <div class="slds-truncate" title="Sales Executive">Quotation</div>
+                    </th>
+                    <td role="gridcell" data-label="Uploaded By">
+                      <div class="slds-truncate" title="Sales Executive">Jay Sappidi</div>
+                    </td>
+                    <td role="gridcell" data-label="Date Uploaded">
+                      <div class="slds-truncate" title="4/14/2015">4/14/2015</div>
+                    </td>
+                    <td role="gridcell" class="slds-cell-shrink" data-label="Select row Sales Executive">
+                      <label class="slds-checkbox">
+                        <input type="checkbox" name="options" />
+                        <span class="slds-checkbox--faux"></span>
+                        <span class="slds-assistive-text">Select Mandatory</span>
+                      </label>
+                    </td>                     
+                    <td role="gridcell" data-label="Version">
+                      <div class="slds-dropdown-trigger slds-dropdown-trigger--click slds-is-closed">
+                        <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small" aria-haspopup="true" title="Show More">
+                          <svg aria-hidden="true" class="slds-button__icon">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                          </svg>
+                          <span class="slds-assistive-text">Show More</span>
+                        </button>
+                        <div class="slds-dropdown slds-dropdown--left slds-dropdown--actions">
+                          <ul class="slds-dropdown__list" role="menu">
+                            <li class="slds-dropdown__item" role="presentation">
+                              <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                <span class="slds-truncate">Delete</span>
+                              </a>
+                            </li>
+                            <li class="slds-dropdown__item" role="presentation">
+                              <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                <span class="slds-truncate">Download</span>
+                              </a>
+                            </li>
+                             <li class="slds-dropdown__item" role="presentation">
+                              <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                <span class="slds-truncate">Move Up</span>
+                              </a>
+                            </li>
+                            <li class="slds-dropdown__item" role="presentation">
+                              <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                <span class="slds-truncate">Move Down</span>
+                              </a>
+                            </li>                                                                                   
+                          </ul>
+                        </div>
+                      </div>
+                    </td>      
+                  </tr>
+                  <tr class="slds-hint-parent">
+                    <th scope="row" data-label="Order">
+                      <div class="slds-truncate" title="Sales Executive">5.</div>                                           
+                    </th>
+                    <th scope="row" data-label="File Name">
+                      <div class="slds-truncate" title="Sales Executive">Quotation</div>
+                    </th>
+                    <td role="gridcell" data-label="Uploaded By">
+                      <div class="slds-truncate" title="Sales Executive">Jay Sappidi</div>
+                    </td>
+                    <td role="gridcell" data-label="Date Uploaded">
+                      <div class="slds-truncate" title="4/14/2015">4/14/2015</div>
+                    </td>
+                    <td role="gridcell" class="slds-cell-shrink" data-label="Select row Sales Executive">
+                      <label class="slds-checkbox">
+                        <input type="checkbox" name="options" />
+                        <span class="slds-checkbox--faux"></span>
+                        <span class="slds-assistive-text">Select Mandatory</span>
+                      </label>
+                    </td>                     
+                    <td role="gridcell" data-label="Version">
+                      <div class="slds-dropdown-trigger slds-dropdown-trigger--click slds-is-closed">
+                        <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small" aria-haspopup="true" title="Show More">
+                          <svg aria-hidden="true" class="slds-button__icon">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                          </svg>
+                          <span class="slds-assistive-text">Show More</span>
+                        </button>
+                        <div class="slds-dropdown slds-dropdown--left slds-dropdown--actions">
+                          <ul class="slds-dropdown__list" role="menu">
+                            <li class="slds-dropdown__item" role="presentation">
+                              <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                <span class="slds-truncate">Delete</span>
+                              </a>
+                            </li>
+                            <li class="slds-dropdown__item" role="presentation">
+                              <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                <span class="slds-truncate">Download</span>
+                              </a>
+                            </li>
+                             <li class="slds-dropdown__item" role="presentation">
+                              <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                <span class="slds-truncate">Move Up</span>
+                              </a>
+                            </li>
+                            <li class="slds-dropdown__item" role="presentation">
+                              <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                                <span class="slds-truncate">Move Down</span>
+                              </a>
+                            </li>                                                                                   
+                          </ul>
+                        </div>
+                      </div>
+                    </td>      
+                  </tr>                                                     
+                </tbody>
+              </table>
+
+            </div>
+
+        </div>
+
+      <!-- / TAB3 -->
+
+      <!-- TAB4 -->
+
+        <div id="tab-default-4" class="slds-tabs--default__content slds-hide slds-p-left--medium slds-p-right--medium" role="tabpanel" aria-labelledby="tab-default-4__item">
+
+          <table class="slds-table slds-table--bordered slds-table--fixed-layout" role="grid">
+            <thead>
+              <tr class="slds-text-title--caps">
+                <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Template Name">
+                  <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                    <span class="slds-assistive-text">Sort </span>
+                    <span class="slds-truncate" title="Opportunity Name">Template Name</span>
+                    <div class="slds-icon_container">
+                      <svg aria-hidden="true" class="slds-icon slds-icon--x-small slds-icon-text-default slds-is-sortable__icon">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+                      </svg>
+                    </div>
+                    <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+                  </a>
+                  <div class="slds-resizable">
+                    <label for="cell-resize-handle-203" class="slds-assistive-text">Template Name column width</label>
+                    <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-203" />
+                    <span class="slds-resizable__handle">
+                      <span class="slds-resizable__divider"></span>
+                    </span>
+                  </div>
+                </th>
+                <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Primary Object">
+                  <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                    <span class="slds-assistive-text">Sort </span>
+                    <span class="slds-truncate" title="Account Name">Primary Object</span>
+                    <div class="slds-icon_container">
+                      <svg aria-hidden="true" class="slds-icon slds-icon--x-small slds-icon-text-default slds-is-sortable__icon">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+                      </svg>
+                    </div>
+                    <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+                  </a>
+                  <div class="slds-resizable">
+                    <label for="cell-resize-handle-204" class="slds-assistive-text">Primary Object column width</label>
+                    <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-204" />
+                    <span class="slds-resizable__handle">
+                      <span class="slds-resizable__divider"></span>
+                    </span>
+                  </div>
+                </th>
+                <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Status">
+                  <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                    <span class="slds-assistive-text">Sort </span>
+                    <span class="slds-truncate" title="Stage">Status</span>
+                    <div class="slds-icon_container">
+                      <svg aria-hidden="true" class="slds-icon slds-icon--x-small slds-icon-text-default slds-is-sortable__icon">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+                      </svg>
+                    </div>
+                    <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+                  </a>
+                  <div class="slds-resizable">
+                    <label for="cell-resize-handle-206" class="slds-assistive-text">Status column width</label>
+                    <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-206" />
+                    <span class="slds-resizable__handle">
+                      <span class="slds-resizable__divider"></span>
+                    </span>
+                  </div>
+                </th>
+                <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Created By">
+                  <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                    <span class="slds-assistive-text">Sort </span>
+                    <span class="slds-truncate" title="Confidence">Created By</span>
+                    <div class="slds-icon_container">
+                      <svg aria-hidden="true" class="slds-icon slds-icon--x-small slds-icon-text-default slds-is-sortable__icon">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+                      </svg>
+                    </div>
+                    <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+                  </a>
+                  <div class="slds-resizable">
+                    <label for="cell-resize-handle-207" class="slds-assistive-text">Created By column width</label>
+                    <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-207" />
+                    <span class="slds-resizable__handle">
+                      <span class="slds-resizable__divider"></span>
+                    </span>
+                  </div>
+                </th>
+                <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Creation Date">
+                  <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                    <span class="slds-assistive-text">Sort </span>
+                    <span class="slds-truncate" title="Close Date">Creation Date</span>
+                    <div class="slds-icon_container">
+                      <svg aria-hidden="true" class="slds-icon slds-icon--x-small slds-icon-text-default slds-is-sortable__icon">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+                      </svg>
+                    </div>
+                    <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+                  </a>
+                  <div class="slds-resizable">
+                    <label for="cell-resize-handle-205" class="slds-assistive-text">Creation Date column width</label>
+                    <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-205" />
+                    <span class="slds-resizable__handle">
+                      <span class="slds-resizable__divider"></span>
+                    </span>
+                  </div>
+                </th>
+                <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="View Template">
+                    <span class="slds-truncate" title="View Template">View Template</span>
+                    <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+                  <div class="slds-resizable">
+                    <label for="cell-resize-handle-208" class="slds-assistive-text">View Template </label>
+                    <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-208" />
+                    <span class="slds-resizable__handle">
+                      <span class="slds-resizable__divider"></span>
+                    </span>
+                  </div>
+                </th>
+                <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="View Template">
+                  <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+                    <span class="slds-assistive-text">Sort </span>
+                    <span class="slds-truncate" title="Version">Version</span>
+                    <div class="slds-icon_container">
+                      <svg aria-hidden="true" class="slds-icon slds-icon--x-small slds-icon-text-default slds-is-sortable__icon">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+                      </svg>
+                    </div>
+                    <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+                  </a>
+                  <div class="slds-resizable">
+                    <label for="cell-resize-handle-208" class="slds-assistive-text">Version </label>
+                    <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-208" />
+                    <span class="slds-resizable__handle">
+                      <span class="slds-resizable__divider"></span>
+                    </span>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="slds-hint-parent">
+
+                <th scope="row" data-label="Template Name">
+                  <div class="slds-truncate" title="Sales Executive">Quotation</div>
+                </th>
+                <td role="gridcell" data-label="Primary Object">
+                  <div class="slds-truncate" title="Sales Executive">Opportunity</div>
+                </td>
+                <td role="gridcell" data-label="Status">
+                  <div class="slds-truncate" title="4/14/2015">Active</div>
+                </td>
+                <td role="gridcell" data-label="Created By">
+                  <div class="slds-truncate" title="Prospecting">Jay Sappidi</div>
+                </td>
+                <td role="gridcell" data-label="Creation Date">
+                  <div class="slds-truncate" title="20%">4/14/2015</div>
+                </td>
+                <td role="gridcell" data-label="View">
+                  <div class="slds-truncate slds-align--absolute-center" title="View">
+                    <span class="slds-icon_container slds-icon-standard-document slds-icon--small " title="preview">
+                      <svg aria-hidden="true" class="slds-icon slds-icon--small">
+                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#document"></use>
+                      </svg>
+                      <span class="slds-assistive-text">Description of icon</span>
+                    </span>
+
+                  </div>
+                </td>
+                <td role="gridcell" data-label="Version">
+                  <div class="slds-truncate" title="3.0">3.0</div>
+                </td>      
+              </tr>
+              <tr class="slds-hint-parent">
+
+                <th scope="row" data-label="Template Name">
+                  <div class="slds-truncate" title="Sales Executive">Quotation</div>
+                </th>
+                <td role="gridcell" data-label="Primary Object">
+                  <div class="slds-truncate" title="Sales Executive">Opportunity</div>
+                </td>
+                <td role="gridcell" data-label="Status">
+                  <div class="slds-truncate" title="4/14/2015">Inactive</div>
+                </td>
+                <td role="gridcell" data-label="Created By">
+                  <div class="slds-truncate" title="Prospecting">Jay Sappidi</div>
+                </td>
+                <td role="gridcell" data-label="Creation Date">
+                  <div class="slds-truncate" title="20%">4/14/2015</div>
+                </td>
+                <td role="gridcell" data-label="View">
+                  <div class="slds-truncate slds-align--absolute-center" title="View">
+                    <span class="slds-icon_container slds-icon-standard-document slds-icon--small " title="preview">
+                      <svg aria-hidden="true" class="slds-icon slds-icon--small">
+                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#document"></use>
+                      </svg>
+                      <span class="slds-assistive-text">Description of icon</span>
+                    </span>
+
+                  </div>
+                </td>
+                 <td role="gridcell" data-label="Version">
+                  <div class="slds-truncate" title="2.0">2.0</div>
+                </td>     
+              </tr>
+              <tr class="slds-hint-parent">
+                <th scope="row" data-label="Template Name">
+                  <div class="slds-truncate" title="Sales Executive">Quotation</div>
+                </th>
+                <td role="gridcell" data-label="Primary Object">
+                  <div class="slds-truncate" title="Sales Executive">Opportunity</div>
+                </td>
+                <td role="gridcell" data-label="Status">
+                  <div class="slds-truncate" title="4/14/2015">Inactive</div>
+                </td>
+                <td role="gridcell" data-label="Created By">
+                  <div class="slds-truncate" title="Prospecting">Jay Sappidi</div>
+                </td>
+                <td role="gridcell" data-label="Creation Date">
+                  <div class="slds-truncate" title="20%">4/14/2015</div>
+                </td>
+                <td role="gridcell" data-label="View">
+                  <div class="slds-truncate slds-align--absolute-center" title="View">
+                    <span class="slds-icon_container slds-icon-standard-document slds-icon--small " title="preview">
+                      <svg aria-hidden="true" class="slds-icon slds-icon--small">
+                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#document"></use>
+                      </svg>
+                      <span class="slds-assistive-text">Description of icon</span>
+                    </span>
+
+                  </div>
+                </td>
+                 <td role="gridcell" data-label="Version">
+                  <div class="slds-truncate" title="1.0">1.0</div>
+                </td>     
+              </tr>
+            </tbody>
+          </table>
+ 
+            <figure class="slds-image">
+                <img src="/assets/Blank_Spacer.png" />
+            </figure>         
+        </div>
+
+      <!-- / TAB4 -->
+
+
+      </div>
+
+
+
+      <!-- /Tabs-->
+
+
+    </div>
+
+    <div class="slds-modal__footer">
+      <button class="slds-button slds-button--neutral" onclick="window.location.href='/template-manager.html'">Cancel</button>
+      <button class="slds-button slds-button--brand" onclick="window.location.href='/template-manager.html'">Save</button>
+    </div>
+  </div>
+
+</div>
+<div class="slds-backdrop slds-backdrop--open"></div>
+
+<!-- / MODAL -->
+
+<table class="slds-table slds-table--bordered slds-table--fixed-layout" role="grid">
+  <thead>
+    <tr class="slds-text-title--caps">
+      <th class="slds-cell-shrink" scope="col">
+        <label class="slds-checkbox">
+          <input type="checkbox" name="options" />
+          <span class="slds-checkbox--faux"></span>
+          <span class="slds-assistive-text">Select All</span>
+        </label>
+      </th>
+      <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Template Name">
+        <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+          <span class="slds-assistive-text">Sort </span>
+          <span class="slds-truncate" title="Opportunity Name">Template Name</span>
+          <div class="slds-icon_container">
+            <svg aria-hidden="true" class="slds-icon slds-icon--x-small slds-icon-text-default slds-is-sortable__icon">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+            </svg>
+          </div>
+          <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+        </a>
+        <div class="slds-resizable">
+          <label for="cell-resize-handle-203" class="slds-assistive-text">Template Name column width</label>
+          <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-203" />
+          <span class="slds-resizable__handle">
+            <span class="slds-resizable__divider"></span>
+          </span>
+        </div>
+      </th>
+      <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Primary Object">
+        <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+          <span class="slds-assistive-text">Sort </span>
+          <span class="slds-truncate" title="Account Name">Primary Object</span>
+          <div class="slds-icon_container">
+            <svg aria-hidden="true" class="slds-icon slds-icon--x-small slds-icon-text-default slds-is-sortable__icon">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+            </svg>
+          </div>
+          <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+        </a>
+        <div class="slds-resizable">
+          <label for="cell-resize-handle-204" class="slds-assistive-text">Primary Object column width</label>
+          <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-204" />
+          <span class="slds-resizable__handle">
+            <span class="slds-resizable__divider"></span>
+          </span>
+        </div>
+      </th>
+      <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Status">
+        <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+          <span class="slds-assistive-text">Sort </span>
+          <span class="slds-truncate" title="Stage">Status</span>
+          <div class="slds-icon_container">
+            <svg aria-hidden="true" class="slds-icon slds-icon--x-small slds-icon-text-default slds-is-sortable__icon">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+            </svg>
+          </div>
+          <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+        </a>
+        <div class="slds-resizable">
+          <label for="cell-resize-handle-206" class="slds-assistive-text">Status column width</label>
+          <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-206" />
+          <span class="slds-resizable__handle">
+            <span class="slds-resizable__divider"></span>
+          </span>
+        </div>
+      </th>
+      <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Created By">
+        <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+          <span class="slds-assistive-text">Sort </span>
+          <span class="slds-truncate" title="Confidence">Created By</span>
+          <div class="slds-icon_container">
+            <svg aria-hidden="true" class="slds-icon slds-icon--x-small slds-icon-text-default slds-is-sortable__icon">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+            </svg>
+          </div>
+          <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+        </a>
+        <div class="slds-resizable">
+          <label for="cell-resize-handle-207" class="slds-assistive-text">Created By column width</label>
+          <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-207" />
+          <span class="slds-resizable__handle">
+            <span class="slds-resizable__divider"></span>
+          </span>
+        </div>
+      </th>
+      <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="Creation Date">
+        <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+          <span class="slds-assistive-text">Sort </span>
+          <span class="slds-truncate" title="Close Date">Creation Date</span>
+          <div class="slds-icon_container">
+            <svg aria-hidden="true" class="slds-icon slds-icon--x-small slds-icon-text-default slds-is-sortable__icon">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+            </svg>
+          </div>
+          <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+        </a>
+        <div class="slds-resizable">
+          <label for="cell-resize-handle-205" class="slds-assistive-text">Creation Date column width</label>
+          <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-205" />
+          <span class="slds-resizable__handle">
+            <span class="slds-resizable__divider"></span>
+          </span>
+        </div>
+      </th>
+      <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="View Template">
+        <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+          <span class="slds-assistive-text">Sort </span>
+          <span class="slds-truncate" title="Amount">View Template</span>
+          <div class="slds-icon_container">
+            <svg aria-hidden="true" class="slds-icon slds-icon--x-small slds-icon-text-default slds-is-sortable__icon">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+            </svg>
+          </div>
+          <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+        </a>
+        <div class="slds-resizable">
+          <label for="cell-resize-handle-208" class="slds-assistive-text">View Template </label>
+          <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-208" />
+          <span class="slds-resizable__handle">
+            <span class="slds-resizable__divider"></span>
+          </span>
+        </div>
+      </th>
+      <th class="slds-is-sortable slds-is-resizable" scope="col" aria-label="View Template">
+        <a href="javascript:void(0);" class="slds-th__action slds-text-link--reset">
+          <span class="slds-truncate" title="Amount">Actions</span>
+          <div class="slds-icon_container">
+            <svg aria-hidden="true" class="slds-icon slds-icon--x-small slds-icon-text-default slds-is-sortable__icon">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+            </svg>
+          </div>
+          <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+        </a>
+        <div class="slds-resizable">
+          <label for="cell-resize-handle-208" class="slds-assistive-text">Actions </label>
+          <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-208" />
+          <span class="slds-resizable__handle">
+            <span class="slds-resizable__divider"></span>
+          </span>
+        </div>
+      </th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="slds-hint-parent">
+      <td role="gridcell" class="slds-cell-shrink" data-label="Select row Sales Executive">
+        <label class="slds-checkbox">
+          <input type="checkbox" name="options" />
+          <span class="slds-checkbox--faux"></span>
+          <span class="slds-assistive-text">Select row Sales Executive</span>
+        </label>
+      </td>
+      <th scope="row" data-label="Template Name">
+        <div class="slds-truncate" title="Sales Executive">Quotation</div>
+      </th>
+      <td role="gridcell" data-label="Primary Object">
+        <div class="slds-truncate" title="Sales Executive">Opportunity</div>
+      </td>
+      <td role="gridcell" data-label="Status">
+        <div class="slds-truncate" title="4/14/2015">Active</div>
+      </td>
+      <td role="gridcell" data-label="Created By">
+        <div class="slds-truncate" title="Prospecting">Jay Sappidi</div>
+      </td>
+      <td role="gridcell" data-label="Creation Date">
+        <div class="slds-truncate" title="20%">4/14/2015</div>
+      </td>
+      <td role="gridcell" data-label="View">
+        <div class="slds-truncate slds-align--absolute-center" title="View">
+          <span class="slds-icon_container slds-icon-standard-document slds-icon--small " title="preview">
+            <svg aria-hidden="true" class="slds-icon slds-icon--small">
+              <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#document"></use>
+            </svg>
+            <span class="slds-assistive-text">Description of icon</span>
+          </span>
+
+        </div>
+      </td>
+
+      <td role="gridcell" class="slds-cell-shrink" data-label="Actions">
+      <div class="slds-truncate slds-align--left">
+        <button class="slds-button slds-button--icon-border slds-button--icon-x-small " title="Show More">
+          <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+          </svg>
+          <span class="slds-assistive-text">Show More</span>
+        </button>
+      </div>
+      </td>
+    </tr>
+    <tr class="slds-hint-parent">
+      <td role="gridcell" class="slds-cell-shrink" data-label="Select row Sales Executive">
+        <label class="slds-checkbox">
+          <input type="checkbox" name="options" />
+          <span class="slds-checkbox--faux"></span>
+          <span class="slds-assistive-text">Select row Sales Executive</span>
+        </label>
+      </td>
+      <th scope="row" data-label="Template Name">
+        <div class="slds-truncate" title="Sales Executive">Quotation</div>
+      </th>
+      <td role="gridcell" data-label="Primary Object">
+        <div class="slds-truncate" title="Sales Executive">Opportunity</div>
+      </td>
+      <td role="gridcell" data-label="Status">
+        <div class="slds-truncate" title="4/14/2015">Active</div>
+      </td>
+      <td role="gridcell" data-label="Created By">
+        <div class="slds-truncate" title="Prospecting">Jay Sappidi</div>
+      </td>
+      <td role="gridcell" data-label="Creation Date">
+        <div class="slds-truncate" title="20%">4/14/2015</div>
+      </td>
+      <td role="gridcell" data-label="View">
+        <div class="slds-truncate slds-align--absolute-center" title="View">
+          <span class="slds-icon_container slds-icon-standard-document slds-icon--small " title="preview">
+            <svg aria-hidden="true" class="slds-icon slds-icon--small">
+              <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#document"></use>
+            </svg>
+            <span class="slds-assistive-text">Description of icon</span>
+          </span>
+
+        </div>
+      </td>
+
+      <td role="gridcell" class="slds-cell-shrink" data-label="Actions">
+      <div class="slds-truncate slds-align--left">
+        <button class="slds-button slds-button--icon-border slds-button--icon-x-small " title="Show More">
+          <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+          </svg>
+          <span class="slds-assistive-text">Show More</span>
+        </button>
+      </div>
+      </td>
+    </tr>
+      <tr class="slds-hint-parent">
+      <td role="gridcell" class="slds-cell-shrink" data-label="Select row Sales Executive">
+        <label class="slds-checkbox">
+          <input type="checkbox" name="options" />
+          <span class="slds-checkbox--faux"></span>
+          <span class="slds-assistive-text">Select row Sales Executive</span>
+        </label>
+      </td>
+      <th scope="row" data-label="Template Name">
+        <div class="slds-truncate" title="Sales Executive">Quotation</div>
+      </th>
+      <td role="gridcell" data-label="Primary Object">
+        <div class="slds-truncate" title="Sales Executive">Opportunity</div>
+      </td>
+      <td role="gridcell" data-label="Status">
+        <div class="slds-truncate" title="4/14/2015">Active</div>
+      </td>
+      <td role="gridcell" data-label="Created By">
+        <div class="slds-truncate" title="Prospecting">Jay Sappidi</div>
+      </td>
+      <td role="gridcell" data-label="Creation Date">
+        <div class="slds-truncate" title="20%">4/14/2015</div>
+      </td>
+      <td role="gridcell" data-label="View">
+        <div class="slds-truncate slds-align--absolute-center" title="View">
+          <span class="slds-icon_container slds-icon-standard-document slds-icon--small " title="preview">
+            <svg aria-hidden="true" class="slds-icon slds-icon--small">
+              <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#document"></use>
+            </svg>
+            <span class="slds-assistive-text">Description of icon</span>
+          </span>
+
+        </div>
+      </td>
+
+      <td role="gridcell" class="slds-cell-shrink" data-label="Actions">
+      <div class="slds-truncate slds-align--left">
+        <button class="slds-button slds-button--icon-border slds-button--icon-x-small " title="Show More">
+          <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+          </svg>
+          <span class="slds-assistive-text">Show More</span>
+        </button>
+      </div>
+      </td>
+    </tr>
+        <tr class="slds-hint-parent">
+      <td role="gridcell" class="slds-cell-shrink" data-label="Select row Sales Executive">
+        <label class="slds-checkbox">
+          <input type="checkbox" name="options" />
+          <span class="slds-checkbox--faux"></span>
+          <span class="slds-assistive-text">Select row Sales Executive</span>
+        </label>
+      </td>
+      <th scope="row" data-label="Template Name">
+        <div class="slds-truncate" title="Sales Executive">Quotation</div>
+      </th>
+      <td role="gridcell" data-label="Primary Object">
+        <div class="slds-truncate" title="Sales Executive">Opportunity</div>
+      </td>
+      <td role="gridcell" data-label="Status">
+        <div class="slds-truncate" title="4/14/2015">Active</div>
+      </td>
+      <td role="gridcell" data-label="Created By">
+        <div class="slds-truncate" title="Prospecting">Jay Sappidi</div>
+      </td>
+      <td role="gridcell" data-label="Creation Date">
+        <div class="slds-truncate" title="20%">4/14/2015</div>
+      </td>
+      <td role="gridcell" data-label="View">
+        <div class="slds-truncate slds-align--absolute-center" title="View">
+          <span class="slds-icon_container slds-icon-standard-document slds-icon--small " title="preview">
+            <svg aria-hidden="true" class="slds-icon slds-icon--small">
+              <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#document"></use>
+            </svg>
+            <span class="slds-assistive-text">Description of icon</span>
+          </span>
+
+        </div>
+      </td>
+
+      <td role="gridcell" class="slds-cell-shrink" data-label="Actions">
+      <div class="slds-truncate slds-align--left">
+        <button class="slds-button slds-button--icon-border slds-button--icon-x-small " title="Show More">
+          <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+          </svg>
+          <span class="slds-assistive-text">Show More</span>
+        </button>
+      </div>
+      </td>
+    </tr>
+        <tr class="slds-hint-parent">
+      <td role="gridcell" class="slds-cell-shrink" data-label="Select row Sales Executive">
+        <label class="slds-checkbox">
+          <input type="checkbox" name="options" />
+          <span class="slds-checkbox--faux"></span>
+          <span class="slds-assistive-text">Select row Sales Executive</span>
+        </label>
+      </td>
+      <th scope="row" data-label="Template Name">
+        <div class="slds-truncate" title="Sales Executive">Quotation</div>
+      </th>
+      <td role="gridcell" data-label="Primary Object">
+        <div class="slds-truncate" title="Sales Executive">Opportunity</div>
+      </td>
+      <td role="gridcell" data-label="Status">
+        <div class="slds-truncate" title="4/14/2015">Active</div>
+      </td>
+      <td role="gridcell" data-label="Created By">
+        <div class="slds-truncate" title="Prospecting">Jay Sappidi</div>
+      </td>
+      <td role="gridcell" data-label="Creation Date">
+        <div class="slds-truncate" title="20%">4/14/2015</div>
+      </td>
+      <td role="gridcell" data-label="View">
+        <div class="slds-truncate slds-align--absolute-center" title="View">
+          <span class="slds-icon_container slds-icon-standard-document slds-icon--small " title="preview">
+            <svg aria-hidden="true" class="slds-icon slds-icon--small">
+              <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#document"></use>
+            </svg>
+            <span class="slds-assistive-text">Description of icon</span>
+          </span>
+
+        </div>
+      </td>
+
+      <td role="gridcell" class="slds-cell-shrink" data-label="Actions">
+      <div class="slds-truncate slds-align--left">
+        <button class="slds-button slds-button--icon-border slds-button--icon-x-small " title="Show More">
+          <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+          </svg>
+          <span class="slds-assistive-text">Show More</span>
+        </button>
+      </div>
+      </td>
+    </tr>
+        <tr class="slds-hint-parent">
+      <td role="gridcell" class="slds-cell-shrink" data-label="Select row Sales Executive">
+        <label class="slds-checkbox">
+          <input type="checkbox" name="options" />
+          <span class="slds-checkbox--faux"></span>
+          <span class="slds-assistive-text">Select row Sales Executive</span>
+        </label>
+      </td>
+      <th scope="row" data-label="Template Name">
+        <div class="slds-truncate" title="Sales Executive">Quotation</div>
+      </th>
+      <td role="gridcell" data-label="Primary Object">
+        <div class="slds-truncate" title="Sales Executive">Opportunity</div>
+      </td>
+      <td role="gridcell" data-label="Status">
+        <div class="slds-truncate" title="4/14/2015">Active</div>
+      </td>
+      <td role="gridcell" data-label="Created By">
+        <div class="slds-truncate" title="Prospecting">Jay Sappidi</div>
+      </td>
+      <td role="gridcell" data-label="Creation Date">
+        <div class="slds-truncate" title="20%">4/14/2015</div>
+      </td>
+      <td role="gridcell" data-label="View">
+        <div class="slds-truncate slds-align--absolute-center" title="View">
+          <span class="slds-icon_container slds-icon-standard-document slds-icon--small " title="preview">
+            <svg aria-hidden="true" class="slds-icon slds-icon--small">
+              <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#document"></use>
+            </svg>
+            <span class="slds-assistive-text">Description of icon</span>
+          </span>
+
+        </div>
+      </td>
+
+      <td role="gridcell" class="slds-cell-shrink" data-label="Actions">
+      <div class="slds-truncate slds-align--left">
+        <button class="slds-button slds-button--icon-border slds-button--icon-x-small " title="Show More">
+          <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+          </svg>
+          <span class="slds-assistive-text">Show More</span>
+        </button>
+      </div>
+      </td>
+    </tr>
+        <tr class="slds-hint-parent">
+      <td role="gridcell" class="slds-cell-shrink" data-label="Select row Sales Executive">
+        <label class="slds-checkbox">
+          <input type="checkbox" name="options" />
+          <span class="slds-checkbox--faux"></span>
+          <span class="slds-assistive-text">Select row Sales Executive</span>
+        </label>
+      </td>
+      <th scope="row" data-label="Template Name">
+        <div class="slds-truncate" title="Sales Executive">Quotation</div>
+      </th>
+      <td role="gridcell" data-label="Primary Object">
+        <div class="slds-truncate" title="Sales Executive">Opportunity</div>
+      </td>
+      <td role="gridcell" data-label="Status">
+        <div class="slds-truncate" title="4/14/2015">Active</div>
+      </td>
+      <td role="gridcell" data-label="Created By">
+        <div class="slds-truncate" title="Prospecting">Jay Sappidi</div>
+      </td>
+      <td role="gridcell" data-label="Creation Date">
+        <div class="slds-truncate" title="20%">4/14/2015</div>
+      </td>
+      <td role="gridcell" data-label="View">
+        <div class="slds-truncate slds-align--absolute-center" title="View">
+          <span class="slds-icon_container slds-icon-standard-document slds-icon--small " title="preview">
+            <svg aria-hidden="true" class="slds-icon slds-icon--small">
+              <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#document"></use>
+            </svg>
+            <span class="slds-assistive-text">Description of icon</span>
+          </span>
+
+        </div>
+      </td>
+
+      <td role="gridcell" class="slds-cell-shrink" data-label="Actions">
+      <div class="slds-truncate slds-align--left">
+        <button class="slds-button slds-button--icon-border slds-button--icon-x-small " title="Show More">
+          <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+          </svg>
+          <span class="slds-assistive-text">Show More</span>
+        </button>
+      </div>
+      </td>
+    </tr>
+        <tr class="slds-hint-parent">
+      <td role="gridcell" class="slds-cell-shrink" data-label="Select row Sales Executive">
+        <label class="slds-checkbox">
+          <input type="checkbox" name="options" />
+          <span class="slds-checkbox--faux"></span>
+          <span class="slds-assistive-text">Select row Sales Executive</span>
+        </label>
+      </td>
+      <th scope="row" data-label="Template Name">
+        <div class="slds-truncate" title="Sales Executive">Quotation</div>
+      </th>
+      <td role="gridcell" data-label="Primary Object">
+        <div class="slds-truncate" title="Sales Executive">Opportunity</div>
+      </td>
+      <td role="gridcell" data-label="Status">
+        <div class="slds-truncate" title="4/14/2015">Active</div>
+      </td>
+      <td role="gridcell" data-label="Created By">
+        <div class="slds-truncate" title="Prospecting">Jay Sappidi</div>
+      </td>
+      <td role="gridcell" data-label="Creation Date">
+        <div class="slds-truncate" title="20%">4/14/2015</div>
+      </td>
+      <td role="gridcell" data-label="View">
+        <div class="slds-truncate slds-align--absolute-center" title="View">
+          <span class="slds-icon_container slds-icon-standard-document slds-icon--small " title="preview">
+            <svg aria-hidden="true" class="slds-icon slds-icon--small">
+              <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#document"></use>
+            </svg>
+            <span class="slds-assistive-text">Description of icon</span>
+          </span>
+
+        </div>
+      </td>
+
+      <td role="gridcell" class="slds-cell-shrink" data-label="Actions">
+      <div class="slds-truncate slds-align--left">
+        <button class="slds-button slds-button--icon-border slds-button--icon-x-small " title="Show More">
+          <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+          </svg>
+          <span class="slds-assistive-text">Show More</span>
+        </button>
+      </div>
+      </td>
+    </tr>
+        <tr class="slds-hint-parent">
+      <td role="gridcell" class="slds-cell-shrink" data-label="Select row Sales Executive">
+        <label class="slds-checkbox">
+          <input type="checkbox" name="options" />
+          <span class="slds-checkbox--faux"></span>
+          <span class="slds-assistive-text">Select row Sales Executive</span>
+        </label>
+      </td>
+      <th scope="row" data-label="Template Name">
+        <div class="slds-truncate" title="Sales Executive">Quotation</div>
+      </th>
+      <td role="gridcell" data-label="Primary Object">
+        <div class="slds-truncate" title="Sales Executive">Opportunity</div>
+      </td>
+      <td role="gridcell" data-label="Status">
+        <div class="slds-truncate" title="4/14/2015">Active</div>
+      </td>
+      <td role="gridcell" data-label="Created By">
+        <div class="slds-truncate" title="Prospecting">Jay Sappidi</div>
+      </td>
+      <td role="gridcell" data-label="Creation Date">
+        <div class="slds-truncate" title="20%">4/14/2015</div>
+      </td>
+      <td role="gridcell" data-label="View">
+        <div class="slds-truncate slds-align--absolute-center" title="View">
+          <span class="slds-icon_container slds-icon-standard-document slds-icon--small " title="preview">
+            <svg aria-hidden="true" class="slds-icon slds-icon--small">
+              <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#document"></use>
+            </svg>
+            <span class="slds-assistive-text">Description of icon</span>
+          </span>
+
+        </div>
+      </td>
+
+      <td role="gridcell" class="slds-cell-shrink" data-label="Actions">
+      <div class="slds-truncate slds-align--left">
+        <button class="slds-button slds-button--icon-border slds-button--icon-x-small " title="Show More">
+          <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+          </svg>
+          <span class="slds-assistive-text">Show More</span>
+        </button>
+      </div>
+      </td>
+    </tr>
+        <tr class="slds-hint-parent">
+      <td role="gridcell" class="slds-cell-shrink" data-label="Select row Sales Executive">
+        <label class="slds-checkbox">
+          <input type="checkbox" name="options" />
+          <span class="slds-checkbox--faux"></span>
+          <span class="slds-assistive-text">Select row Sales Executive</span>
+        </label>
+      </td>
+      <th scope="row" data-label="Template Name">
+        <div class="slds-truncate" title="Sales Executive">Quotation</div>
+      </th>
+      <td role="gridcell" data-label="Primary Object">
+        <div class="slds-truncate" title="Sales Executive">Opportunity</div>
+      </td>
+      <td role="gridcell" data-label="Status">
+        <div class="slds-truncate" title="4/14/2015">Active</div>
+      </td>
+      <td role="gridcell" data-label="Created By">
+        <div class="slds-truncate" title="Prospecting">Jay Sappidi</div>
+      </td>
+      <td role="gridcell" data-label="Creation Date">
+        <div class="slds-truncate" title="20%">4/14/2015</div>
+      </td>
+      <td role="gridcell" data-label="View">
+        <div class="slds-truncate slds-align--absolute-center" title="View">
+          <span class="slds-icon_container slds-icon-standard-document slds-icon--small " title="preview">
+            <svg aria-hidden="true" class="slds-icon slds-icon--small">
+              <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#document"></use>
+            </svg>
+            <span class="slds-assistive-text">Description of icon</span>
+          </span>
+
+        </div>
+      </td>
+
+      <td role="gridcell" class="slds-cell-shrink" data-label="Actions">
+      <div class="slds-truncate slds-align--left">
+        <button class="slds-button slds-button--icon-border slds-button--icon-x-small " title="Show More">
+          <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+          </svg>
+          <span class="slds-assistive-text">Show More</span>
+        </button>
+      </div>
+      </td>
+    </tr>
+
+
+
+  </tbody>
+</table>
+
+<!-- / DATA TABLE -->
+
+<div class="slds-grid">
+
+  <!-- COLUMN #1 -->
+  <div class="slds-col slds-size--3-of-4 slds-col--padded">
+
+    <!-- TABS: https://www.lightningdesignsystem.com/components/tabs/#flavor-default -->
+
+    <!-- /TABS -->
+
+    <!-- DESCRIPTION LIST: https://www.lightningdesignsystem.com/components/utilities/lists/#flavor-description-list -->
+
+    <!-- /DESCRIPTION LIST -->
+
+  </div>
+  <!-- /COLUMN #1 -->
+
+  <!-- COLUMN #2 -->
+  <div class="slds-col slds-size--1-of-4 slds-col--padded">
+
+    <!-- NARROW CARD: https://www.lightningdesignsystem.com/components/cards/#flavor-related-list-narrow -->
+
+    <!-- /NARROW CARD -->
+
+  </div>
+  <!-- /COLUMN #2 -->
+
+</div>
+<!-- /COLUMNS -->
+
+{% endblock %}
