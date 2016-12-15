@@ -1,0 +1,489 @@
+<!--
+  This example leverages Nunjucks, a powerful templating language:
+  https://mozilla.github.io/nunjucks/
+
+  # Don't want to use Nunjucks?
+    It is entirely optional. Feel free to use normal HTML instead!
+-->
+
+<!--
+  Extend the global template
+-->
+{% extends "_template.html" %}
+
+<!--
+  Page content (gets injected into the template)
+-->
+{% block content %}
+{% include "_page-header.html" %}
+
+
+<!--
+  Using the grid to make a 2-column layout
+  https://www.lightningdesignsystem.com/components/utilities/grid/
+-->
+
+<!-- PRIMARY CONTENT WRAPPER -->
+<div class="myapp">
+
+
+<!-- MODAL -->
+<div role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal slds-fade-in-open slds-modal--medium ">
+  <div class="slds-modal__container">
+    <div class="slds-modal__header">
+      <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="window.location.href='/opportunity-sample.html'">
+        <svg aria-hidden="true" class="slds-button__icon slds-button__icon--large">
+          <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+        </svg>
+        <span class="slds-assistive-text">Close</span>
+      </button>
+      <h2 id="header43" class="slds-text-heading--medium">DocGen - Generate Document</h2>
+    </div>
+
+    	<div class="slds-modal__content slds-p-around--large">
+             <form role="form" class="slds-form--horizontal slds-grid slds-wrap slds-grid--pull-padded ">
+              <div class="slds-p-horizontal--small slds-size--1-of-1 slds-medium-size--2-of-2">
+                <div class="slds-form-element">
+                  <label class="slds-form-element__label" for="Document-Owner">Document Owner</label>
+                  <div class="slds-form-element__control">
+                    <span id="Document-Name" class="slds-form-element__static slds-input" type="text">Jay Sappidi </span>
+                  </div>
+                </div>
+                <div class="slds-form-element">
+                  <label class="slds-form-element__label" for="primary-object">Select Document Template</label>
+                  <div class="slds-form-element__control">
+                    <div class="slds-select_container">
+                      <select id="primar-object" class="slds-select">
+                        <option>Sales Quotation</option>
+                        <option>Welcome Letter</option>
+                        <option>Contract</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="slds-form-element">
+                  <label class="slds-form-element__label" for="Document-Name">Document Name</label>
+                  <div class="slds-form-element__control">
+                    <span id="Document-Name" class="slds-form-element__static slds-input" type="text">Sage-SalesQuotation-20161212 </span>
+                  </div>
+                </div>
+
+
+                 <div class="slds-form-element">
+                  <label class="slds-form-element__label" for="primary-object">Select Contact</label>
+                  <div class="slds-form-element__control">
+                    <div class="slds-select_container">
+                      <select id="primar-object" class="slds-select">
+                        <option>John Doe</option>
+                        <option>Sally Smith</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>                
+                <div class="slds-form-element">
+                  <label class="slds-form-element__label" for="textarea">Notes</label>
+                  <div class="slds-form-element__control">
+                    <textarea id="textarea" class="slds-textarea"></textarea>
+                  </div>
+                </div>
+			<div class="slds-grid slds-wrap slds-p-top--small">
+			<h3 class="slds-section-heading--small">Additional Documents to Attach</h3>
+
+        <!-- ADDITIONAL DOCUMENTS -->
+              <table class="slds-table slds-table--bordered slds-table--fixed-layout" role="grid">
+                <thead>
+                  <tr class="slds-text-title--caps">
+                    <th class="slds-cell-shrink" scope="col" aria-label="View Template">
+                        <span class="slds-truncate" title="No.">No.</span>
+                        <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+
+                      <div class="slds-resizable">
+                        <label for="cell-resize-handle-208" class="slds-assistive-text">No. </label>
+                        <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-208" />
+                        <span class="slds-resizable__handle">
+                          <span class="slds-resizable__divider"></span>
+                        </span>
+                      </div>
+                    </th>
+				      <th class="slds-cell-shrink" scope="col">
+				        <label class="slds-checkbox">
+				          <input type="checkbox" name="options" />
+				          <span class="slds-checkbox--faux"></span>
+				          <span class="slds-assistive-text">Select All</span>
+				        </label>
+				      </th>
+                    <th class=" slds-is-resizable" scope="col" aria-label="View Template">
+                        <span class="slds-truncate" title="Action">File Name</span>
+                        <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+
+                      <div class="slds-resizable">
+                        <label for="cell-resize-handle-208" class="slds-assistive-text">File Name </label>
+                        <input class="slds-resizable__input slds-assistive-text" type="range" min="20" max="1000" id="cell-resize-handle-208" />
+                        <span class="slds-resizable__handle">
+                          <span class="slds-resizable__divider"></span>
+                        </span>
+                      </div>
+                    </th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="slds-hint-parent">
+                    <td scope="row" data-label="Order">
+                      <div class="slds-truncate" title="Sales Executive">1.</div>                                           
+                    </td>
+                    <td role="gridcell" class="slds-cell-shrink" data-label="Select row Sales Executive">
+                      <label class="slds-checkbox">
+                        <input type="checkbox" name="options" />
+                        <span class="slds-checkbox--faux"></span>
+                        <span class="slds-assistive-text">Select Additional Attachments</span>
+                      </label>
+                    </td>                    
+                    <td scope="row" data-label="File Name">
+                      <div class="slds-truncate" title="Sales Executive">Brochure</div>
+                    </td>
+ 
+                  </tr>
+                  <tr class="slds-hint-parent">
+                    <td scope="row" data-label="Order">
+                      <div class="slds-truncate" title="Sales Executive">2.</div>                                           
+                    </td>
+                    <td role="gridcell" class="slds-cell-shrink" data-label="Select row Sales Executive">
+                      <label class="slds-checkbox">
+                        <input type="checkbox" name="options"/>
+                        <span class="slds-checkbox--faux"></span>
+                        <span class="slds-assistive-text">Select Additional Attachments</span>
+                      </label>
+                    </td>                    
+                    <td scope="row" data-label="File Name">
+                      <div class="slds-truncate" title="Sales Executive">Case Study</div>	
+                    </td>
+                  </tr> 
+                  <tr class="slds-hint-parent">
+                    <td scope="row" data-label="Order">
+                      <div class="slds-truncate" title="Sales Executive">3.</div>                                           
+                    </td>
+                    <td role="gridcell" class="slds-cell-shrink" data-label="Select row Sales Executive">
+                      <label class="slds-checkbox">
+                        <input type="checkbox" name="options" />
+                        <span class="slds-checkbox--faux"></span>
+                        <span class="slds-assistive-text">Select Additional Attachments</span>
+                      </label>
+                    </td>                    
+                    <td scope="row" data-label="File Name">
+                      <div class="slds-truncate" title="Sales Executive">White Paper</div>	
+                    </td>
+                  </tr>       
+                   <tr class="slds-hint-parent">
+                    <td scope="row" data-label="Order">
+                      <div class="slds-truncate" title="Sales Executive">4.</div>                                           
+                    </td>
+                    <td role="gridcell" class="slds-cell-shrink" data-label="Select row Sales Executive">
+                      <label class="slds-checkbox">
+                        <input type="checkbox" name="options" />
+                        <span class="slds-checkbox--faux"></span>
+                        <span class="slds-assistive-text">Select Additional Attachments</span>
+                      </label>
+                    </td>                    
+                    <td scope="row" data-label="File Name">
+                      <div class="slds-truncate" title="Sales Executive">Analyst Report</div>	
+                    </td>
+                  </tr>                                                                                           
+                </tbody>
+              </table>
+            <!-- / ADDITIONAL DOCUMENTS -->
+            </div>
+
+  
+              </div>
+            </form>
+
+            <figure class="slds-image">
+                <img src="/assets/Blank_Spacer.png" />
+            </figure>
+
+    	</div>
+
+    <div class="slds-modal__footer">
+      <button class="slds-button slds-button--neutral" onclick="window.location.href='/opportunity-sample.html'">Cancel</button>
+      <button class="slds-button slds-button--brand" onclick="window.location.href='/opportunity-sample.html'">Generate Document</button>
+    </div>
+  </div>
+
+</div>
+<div class="slds-backdrop slds-backdrop--open"></div>
+
+<!-- / MODAL -->
+
+  <!-- RELATED LIST CARDS-->
+
+  <div class="slds-grid slds-m-top--large">
+
+		 <!-- MAIN CARD -->
+			 <!-- CONTACTS RELATED LIST -->
+			<div class="slds-col slds-col-rule--right slds-p-right--large slds-size--8-of-12 slds-col--padded" >
+
+			  <article class="slds-card">
+
+			    <header class="slds-card__header slds-grid">
+			      <div class="slds-media slds-media--center slds-has-flexi-truncate">
+			        <div class="slds-media__figure">
+			          <svg aria-hidden="true" class="slds-icon slds-icon-standard-contact slds-icon--small">
+			            <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#contact"></use>
+			          </svg>
+			        </div>
+			        <div class="slds-media__body slds-truncate">
+			          <a href="javascript:void(0);" class="slds-text-link--reset">
+			            <span class="slds-text-heading--small">Contacts</span>
+			          </a>
+			        </div>
+			      </div>
+			    </header>
+
+			    <!-- CARD BODY = TABLE -->
+			    <section class="slds-card__body">
+			      <table class="slds-table slds-table--bordered slds-no-row-hover slds-table--cell-buffer">
+			        <thead>
+			          <tr class="slds-text-heading--label">
+			            <th class="slds-size--1-of-4" scope="col">Name</th>
+			            <th class="slds-size--1-of-4" scope="col">Company</th>
+			            <th class="slds-size--1-of-4" scope="col">Title</th>
+			            <th class="slds-size--1-of-4" scope="col">Email</th>
+			            <th scope="col"></th>
+			          </tr>
+			        </thead>
+			        <tbody>
+			          <tr class="slds-hint-parent">
+			            <th class="slds-size--1-of-4" scope="row"><a href="javascript:void(0);">Adam Choi</a></th>
+			            <td class="slds-size--1-of-4">Company One</td>
+			            <td class="slds-size--1-of-4">Director of Operations</td>
+			            <td class="slds-size--1-of-4">adam@company.com</td>
+			            <td class="slds-cell-shrink">
+			              <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small">
+			                <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+			                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+			                </svg>
+			                <span class="slds-assistive-text">Show More</span>
+			              </button>
+			            </td>
+			          </tr>
+			        </tbody>
+			      </table>
+			    </section>
+			    <!-- / CARD BODY = SECTION + TABLE -->
+
+			    <footer class="slds-card__footer">
+			      <a href="javascript:void(0);">View All <span class="slds-assistive-text">contacts</span></a>
+			    </footer>
+
+			  </article>
+
+			<!-- / CONTACTS RELATED LIST -->
+
+			 <!-- DOCGEN RELATED LIST -->
+
+			  <article class="slds-card">
+
+			    <header class="slds-card__header slds-grid">
+			      <div class="slds-media slds-media--center slds-has-flexi-truncate">
+			        <div class="slds-media__figure">
+			          <svg aria-hidden="true" class="slds-icon slds-icon-standard-document slds-icon--small">
+			            <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#document"></use>
+			          </svg>
+			        </div>
+			        <div class="slds-media__body slds-truncate">
+			          <a href="javascript:void(0);" class="slds-text-link--reset">
+			            <span class="slds-text-heading--small">Generated Documents using DocGen</span>
+			          </a>
+			        </div>
+			      </div>
+			    </header>
+
+			    <!-- CARD BODY = TABLE -->
+			    <section class="slds-card__body">
+			      <table class="slds-table slds-table--bordered slds-no-row-hover slds-table--cell-buffer">
+			        <thead>
+			          <tr class="slds-text-heading--label">
+			            <th class="slds-size--1-of-4" scope="col">Document Title</th>
+			            <th class="slds-size--1-of-4" scope="col">Document Type</th>
+			            <th class="slds-size--1-of-4" scope="col">Created By</th>
+			            <th class="slds-size--1-of-4" scope="col">Date Created</th>			            
+			            <th class="slds-size--1-of-4" scope="col">Actions</th>
+			          </tr>
+			        </thead>
+			        <tbody>
+			          <tr class="slds-hint-parent">
+			            <th class="slds-size--1-of-4" scope="row"><a href="javascript:void(0);">Sales Quotations for ERP </a></th>
+			            <td class="slds-size--1-of-4">Quotation</td>
+			            <td class="slds-size--1-of-4">Jay Sappidi</td>
+			            <td class="slds-size--1-of-4">12/10/2016</td>			            
+					      <td role="gridcell" class="slds-cell-shrink" data-label="Actions">
+					        <div class="slds-dropdown-trigger slds-dropdown-trigger--click slds-is-closed">
+					            <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small" aria-haspopup="true" title="Show More">
+					              <svg aria-hidden="true" class="slds-button__icon">
+					                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+					              </svg>
+					              <span class="slds-assistive-text">Show More</span>
+					            </button>
+					            <div class="slds-dropdown slds-dropdown--left slds-dropdown--actions">
+
+					              <ul class="slds-dropdown__list" role="menu">
+					                <li class="slds-dropdown__item" role="presentation">
+					                  <a href="javascript:void(0);" role="menuitem" tabindex="0">
+					                    <span class="slds-truncate">View Word</span>
+					                  </a>
+					                </li>
+
+					                <li class="slds-dropdown__item" role="presentation">
+					                  <a href="javascript:void(0);" role="menuitem" tabindex="0">
+					                    <span class="slds-truncate">View PDF</span>
+					                  </a>
+					                </li>						                
+					                <li class="slds-dropdown__item" role="presentation">
+					                  <a href="javascript:void(0);" role="menuitem" tabindex="0">
+					                    <span class="slds-truncate">Email</span>
+					                  </a>
+					                </li>
+					                <li class="slds-dropdown__item" role="presentation">
+					                  <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+					                    <span class="slds-truncate">Download Document</span>
+					                  </a>
+					                </li>
+					                <li class="slds-dropdown__item" role="presentation">
+					                  <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+					                    <span class="slds-truncate">Delete</span>
+					                  </a>
+					                </li>
+					              </ul>
+					            </div>
+					          </div>
+					      </td>
+			          </tr>
+			          <tr class="slds-hint-parent">
+			            <th class="slds-size--1-of-4" scope="row"><a href="javascript:void(0);">Welcome Letter </a></th>
+			            <td class="slds-size--1-of-4">Letter</td>
+			            <td class="slds-size--1-of-4">Jay Sappidi</td>
+			            <td class="slds-size--1-of-4">12/01/2016</td>		
+					      <td role="gridcell" class="slds-cell-shrink" data-label="Actions">
+					        <div class="slds-dropdown-trigger slds-dropdown-trigger--click slds-is-closed">
+					            <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small" aria-haspopup="true" title="Show More">
+					              <svg aria-hidden="true" class="slds-button__icon">
+					                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+					              </svg>
+					              <span class="slds-assistive-text">Show More</span>
+					            </button>
+					            <div class="slds-dropdown slds-dropdown--left slds-dropdown--actions">
+					              <ul class="slds-dropdown__list" role="menu">
+					                <li class="slds-dropdown__item" role="presentation">
+					                  <a href="javascript:void(0);" role="menuitem" tabindex="0">
+					                    <span class="slds-truncate">View Word</span>
+					                  </a>
+					                </li>
+
+					                <li class="slds-dropdown__item" role="presentation">
+					                  <a href="javascript:void(0);" role="menuitem" tabindex="0">
+					                    <span class="slds-truncate">View PDF</span>
+					                  </a>
+					                </li>	
+					                <li class="slds-dropdown__item" role="presentation">
+					                  <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+					                    <span class="slds-truncate">Download Document</span>
+					                  </a>
+					                </li>
+					                <li class="slds-dropdown__item" role="presentation">
+					                  <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+					                    <span class="slds-truncate">Delete</span>
+					                  </a>
+					                </li>
+					              </ul>
+					            </div>
+					          </div>
+					      </td>
+					<!--      			            	            
+			            <td class="slds-cell-shrink">
+			              <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small">
+			                <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+			                  <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+			                </svg>
+			                <span class="slds-assistive-text">Show More</span>
+			              </button>
+			            </td>
+			          -->
+			          </tr>			          
+			        </tbody>
+			      </table>
+			    </section>
+			    <!-- / CARD BODY = SECTION + TABLE -->
+
+			    <footer class="slds-card__footer">
+			      <a href="javascript:void(0);">View All <span class="slds-assistive-text">contacts</span></a>
+			    </footer>
+
+			  </article>
+			</div>
+			<!-- / CONTACTS RELATED LIST -->
+		<!-- / MAIN CARD -->
+		<!-- NARROW CARD -->
+		<div class="slds-col slds-p-left--large slds-size--4-of-12 slds-col--padded">
+
+		  <article class="slds-card slds-card--narrow">
+
+		    <header class="slds-card__header slds-grid">
+		      <div class="slds-media slds-media--center slds-has-flexi-truncate">
+		        <div class="slds-media__figure">
+		          <svg aria-hidden="true" class="slds-icon slds-icon-standard-lead slds-icon--small">
+		            <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#lead"></use>
+		          </svg>
+		        </div>
+		        <div class="slds-media__body slds-truncate">
+		          <h3 class="slds-text-heading--small">Team</h3>
+		        </div>
+		      </div>
+		    </header>
+
+		    <section class="slds-card__body">
+		      <div class="slds-card__body--inner">
+		        <div class="slds-tile">
+		          <p class="slds-truncate" title="Related Record Title 1"><a href="javascript:void(0);">Anne Choi</a></p>
+		          <div class="slds-tile__detail slds-text-body--small">
+		            <dl class="slds-dl--horizontal">
+		              <dt class="slds-dl--horizontal__label">
+		                <p class="slds-truncate" title="Email:">Email:</p>
+		              </dt>
+		              <dd class="slds-dl--horizontal__detail slds-tile__meta">
+		                <p class="slds-truncate" title="achoi@burlingtion.com">achoi@burlingtion.com</p>
+		              </dd>
+		            </dl>
+		          </div>
+		        </div>
+		      </div>
+		    </section>
+
+		    <footer class="slds-card__footer">
+		      <a href="javascript:void(0);">View All <span class="slds-assistive-text">team members</span></a>
+		    </footer>
+
+		  </article>
+
+		</div>
+		<!-- / NARROW CARD -->
+
+  </div>
+  <!-- / RELATED LIST CARDS -->
+
+</div>
+<!-- / PRIMARY CONTENT WRAPPER -->
+
+
+    <!-- FOOTER -->
+    <footer role="contentinfo" class="slds-p-around--large">
+      <!-- LAYOUT GRID -->
+      <div class="slds-grid slds-grid--align-spread">
+        <p class="slds-col">DocGen Mockups</p>
+        <p class="slds-col">&copy; Docmation LLC.</p>
+      </div>
+      <!-- / LAYOUT GRID -->
+    </footer>
+    <!-- / FOOTER --> 
+
+{% endblock %}

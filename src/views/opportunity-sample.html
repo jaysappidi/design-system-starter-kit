@@ -1,0 +1,294 @@
+<!--
+  This example leverages Nunjucks, a powerful templating language:
+  https://mozilla.github.io/nunjucks/
+
+  # Don't want to use Nunjucks?
+    It is entirely optional. Feel free to use normal HTML instead!
+-->
+
+<!--
+  Extend the global template
+-->
+{% extends "_template.html" %}
+
+<!--
+  Page content (gets injected into the template)
+-->
+{% block content %}
+{% include "_page-header.html" %}
+
+
+<!--
+  Using the grid to make a 2-column layout
+  https://www.lightningdesignsystem.com/components/utilities/grid/
+-->
+
+<!-- PRIMARY CONTENT WRAPPER -->
+<div class="myapp">
+
+
+  <!-- RELATED LIST CARDS-->
+
+  <div class="slds-grid slds-m-top--large">
+
+		 <!-- MAIN CARD -->
+			 <!-- CONTACTS RELATED LIST -->
+			<div class="slds-col slds-col-rule--right slds-p-right--large slds-size--8-of-12 slds-col--padded" >
+
+			  <article class="slds-card">
+
+			    <header class="slds-card__header slds-grid">
+			      <div class="slds-media slds-media--center slds-has-flexi-truncate">
+			        <div class="slds-media__figure">
+			          <svg aria-hidden="true" class="slds-icon slds-icon-standard-contact slds-icon--small">
+			            <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#contact"></use>
+			          </svg>
+			        </div>
+			        <div class="slds-media__body slds-truncate">
+			          <a href="javascript:void(0);" class="slds-text-link--reset">
+			            <span class="slds-text-heading--small">Contacts</span>
+			          </a>
+			        </div>
+			      </div>
+			    </header>
+
+			    <!-- CARD BODY = TABLE -->
+			    <section class="slds-card__body">
+			      <table class="slds-table slds-table--bordered slds-no-row-hover slds-table--cell-buffer">
+			        <thead>
+			          <tr class="slds-text-heading--label">
+			            <th class="slds-size--1-of-4" scope="col">Name</th>
+			            <th class="slds-size--1-of-4" scope="col">Company</th>
+			            <th class="slds-size--1-of-4" scope="col">Title</th>
+			            <th class="slds-size--1-of-4" scope="col">Email</th>
+			            <th scope="col"></th>
+			          </tr>
+			        </thead>
+			        <tbody>
+			          <tr class="slds-hint-parent">
+			            <th class="slds-size--1-of-4" scope="row"><a href="javascript:void(0);">Adam Choi</a></th>
+			            <td class="slds-size--1-of-4">Company One</td>
+			            <td class="slds-size--1-of-4">Director of Operations</td>
+			            <td class="slds-size--1-of-4">adam@company.com</td>
+			            <td class="slds-cell-shrink">
+			              <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small">
+			                <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+			                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+			                </svg>
+			                <span class="slds-assistive-text">Show More</span>
+			              </button>
+			            </td>
+			          </tr>
+			        </tbody>
+			      </table>
+			    </section>
+			    <!-- / CARD BODY = SECTION + TABLE -->
+
+			    <footer class="slds-card__footer">
+			      <a href="javascript:void(0);">View All <span class="slds-assistive-text">contacts</span></a>
+			    </footer>
+
+			  </article>
+
+			<!-- / CONTACTS RELATED LIST -->
+
+			 <!-- DOCGEN RELATED LIST -->
+
+			  <article class="slds-card">
+
+			    <header class="slds-card__header slds-grid">
+			      <div class="slds-media slds-media--center slds-has-flexi-truncate">
+			        <div class="slds-media__figure">
+			          <svg aria-hidden="true" class="slds-icon slds-icon-standard-document slds-icon--small">
+			            <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#document"></use>
+			          </svg>
+			        </div>
+			        <div class="slds-media__body slds-truncate">
+			          <a href="javascript:void(0);" class="slds-text-link--reset">
+			            <span class="slds-text-heading--small">Generated Documents using DocGen</span>
+			          </a>
+			        </div>
+			      </div>
+			    </header>
+
+			    <!-- CARD BODY = TABLE -->
+			    <section class="slds-card__body">
+			      <table class="slds-table slds-table--bordered slds-no-row-hover slds-table--cell-buffer">
+			        <thead>
+			          <tr class="slds-text-heading--label">
+			            <th class="slds-size--1-of-4" scope="col">Document Title</th>
+			            <th class="slds-size--1-of-4" scope="col">Document Type</th>
+			            <th class="slds-size--1-of-4" scope="col">Created By</th>
+			            <th class="slds-size--1-of-4" scope="col">Date Created</th>			            
+			            <th class="slds-size--1-of-4" scope="col">Actions</th>
+			          </tr>
+			        </thead>
+			        <tbody>
+			          <tr class="slds-hint-parent">
+			            <th class="slds-size--1-of-4" scope="row"><a href="javascript:void(0);">Sales Quotations for ERP </a></th>
+			            <td class="slds-size--1-of-4">Quotation</td>
+			            <td class="slds-size--1-of-4">Jay Sappidi</td>
+			            <td class="slds-size--1-of-4">12/10/2016</td>			            
+					      <td role="gridcell" class="slds-cell-shrink" data-label="Actions">
+					        <div class="slds-dropdown-trigger slds-dropdown-trigger--click slds-is-closed">
+					            <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small" aria-haspopup="true" title="Show More">
+					              <svg aria-hidden="true" class="slds-button__icon">
+					                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+					              </svg>
+					              <span class="slds-assistive-text">Show More</span>
+					            </button>
+					            <div class="slds-dropdown slds-dropdown--left slds-dropdown--actions">
+
+					              <ul class="slds-dropdown__list" role="menu">
+					                <li class="slds-dropdown__item" role="presentation">
+					                  <a href="javascript:void(0);" role="menuitem" tabindex="0">
+					                    <span class="slds-truncate">View</span>
+					                  </a>
+					                </li>					              
+					                <li class="slds-dropdown__item" role="presentation">
+					                  <a href="javascript:void(0);" role="menuitem" tabindex="0">
+					                    <span class="slds-truncate">Email</span>
+					                  </a>
+					                </li>
+					                <li class="slds-dropdown__item" role="presentation">
+					                  <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+					                    <span class="slds-truncate">Download Document</span>
+					                  </a>
+					                </li>
+					                <li class="slds-dropdown__item" role="presentation">
+					                  <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+					                    <span class="slds-truncate">Delete</span>
+					                  </a>
+					                </li>
+					              </ul>
+					            </div>
+					          </div>
+					      </td>
+			          </tr>
+			          <tr class="slds-hint-parent">
+			            <th class="slds-size--1-of-4" scope="row"><a href="javascript:void(0);">Welcome Letter </a></th>
+			            <td class="slds-size--1-of-4">Letter</td>
+			            <td class="slds-size--1-of-4">Jay Sappidi</td>
+			            <td class="slds-size--1-of-4">12/01/2016</td>		
+					      <td role="gridcell" class="slds-cell-shrink" data-label="Actions">
+					        <div class="slds-dropdown-trigger slds-dropdown-trigger--click slds-is-closed">
+					            <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small" aria-haspopup="true" title="Show More">
+					              <svg aria-hidden="true" class="slds-button__icon">
+					                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+					              </svg>
+					              <span class="slds-assistive-text">Show More</span>
+					            </button>
+					            <div class="slds-dropdown slds-dropdown--left slds-dropdown--actions">
+					              <ul class="slds-dropdown__list" role="menu">
+					                <li class="slds-dropdown__item" role="presentation">
+					                  <a href="javascript:void(0);" role="menuitem" tabindex="0">
+					                    <span class="slds-truncate">View</span>
+					                  </a>
+					                </li>					              
+					                <li class="slds-dropdown__item" role="presentation">
+					                  <a href="javascript:void(0);" role="menuitem" tabindex="0">
+					                    <span class="slds-truncate">Email</span>
+					                  </a>
+					                </li>
+					                <li class="slds-dropdown__item" role="presentation">
+					                  <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+					                    <span class="slds-truncate">Download Document</span>
+					                  </a>
+					                </li>
+					                <li class="slds-dropdown__item" role="presentation">
+					                  <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+					                    <span class="slds-truncate">Delete</span>
+					                  </a>
+					                </li>
+					              </ul>
+					            </div>
+					          </div>
+					      </td>
+					<!--      			            	            
+			            <td class="slds-cell-shrink">
+			              <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small">
+			                <svg aria-hidden="true" class="slds-button__icon slds-button__icon--hint slds-button__icon--small">
+			                  <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+			                </svg>
+			                <span class="slds-assistive-text">Show More</span>
+			              </button>
+			            </td>
+			          -->
+			          </tr>			          
+			        </tbody>
+			      </table>
+			    </section>
+			    <!-- / CARD BODY = SECTION + TABLE -->
+
+			    <footer class="slds-card__footer">
+			      <a href="javascript:void(0);">View All <span class="slds-assistive-text">contacts</span></a>
+			    </footer>
+
+			  </article>
+			</div>
+			<!-- / CONTACTS RELATED LIST -->
+		<!-- / MAIN CARD -->
+		<!-- NARROW CARD -->
+		<div class="slds-col slds-p-left--large slds-size--4-of-12 slds-col--padded">
+
+		  <article class="slds-card slds-card--narrow">
+
+		    <header class="slds-card__header slds-grid">
+		      <div class="slds-media slds-media--center slds-has-flexi-truncate">
+		        <div class="slds-media__figure">
+		          <svg aria-hidden="true" class="slds-icon slds-icon-standard-lead slds-icon--small">
+		            <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#lead"></use>
+		          </svg>
+		        </div>
+		        <div class="slds-media__body slds-truncate">
+		          <h3 class="slds-text-heading--small">Team</h3>
+		        </div>
+		      </div>
+		    </header>
+
+		    <section class="slds-card__body">
+		      <div class="slds-card__body--inner">
+		        <div class="slds-tile">
+		          <p class="slds-truncate" title="Related Record Title 1"><a href="javascript:void(0);">Anne Choi</a></p>
+		          <div class="slds-tile__detail slds-text-body--small">
+		            <dl class="slds-dl--horizontal">
+		              <dt class="slds-dl--horizontal__label">
+		                <p class="slds-truncate" title="Email:">Email:</p>
+		              </dt>
+		              <dd class="slds-dl--horizontal__detail slds-tile__meta">
+		                <p class="slds-truncate" title="achoi@burlingtion.com">achoi@burlingtion.com</p>
+		              </dd>
+		            </dl>
+		          </div>
+		        </div>
+		      </div>
+		    </section>
+
+		    <footer class="slds-card__footer">
+		      <a href="javascript:void(0);">View All <span class="slds-assistive-text">team members</span></a>
+		    </footer>
+
+		  </article>
+
+		</div>
+		<!-- / NARROW CARD -->
+
+  </div>
+  <!-- / RELATED LIST CARDS -->
+
+</div>
+<!-- / PRIMARY CONTENT WRAPPER -->
+
+
+    <!-- FOOTER -->
+    <footer role="contentinfo" class="slds-p-around--large">
+      <!-- LAYOUT GRID -->
+      <div class="slds-grid slds-grid--align-spread">
+        <p class="slds-col">DocGen Mockups</p>
+        <p class="slds-col">&copy; Docmation LLC.</p>
+      </div>
+      <!-- / LAYOUT GRID -->
+    </footer>
+    <!-- / FOOTER --> 
+
+{% endblock %}
